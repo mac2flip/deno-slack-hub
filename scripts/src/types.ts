@@ -8,7 +8,7 @@ type BaseFunctionProperty = {
 export type ObjectFunctionProperty = BaseFunctionProperty & {
   type: "object";
   properties: FunctionProperties;
-  required?: string[];
+  required: string[];
   additionalProperties?: boolean;
 };
 

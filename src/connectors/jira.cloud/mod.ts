@@ -2,6 +2,35 @@
 import CreateIssue from "./functions/create_issue.ts";
 import EditIssue from "./functions/edit_issue.ts";
 
-const JiraCloud = { functions: { CreateIssue, EditIssue } } as const;
+const JiraCloud = {
+  functions: {
+    /**
+     * @memberOf Connectors.JiraCloud.functions
+     * @param {object} options - CreateIssue input options object.
+     * @param {object} options.atlassian_access_token -
+     * @param {"DEVELOPER"|"END_USER"} options.atlassian_access_token.credential_source - specifies which user’s token should be selected
+     * @param {string} options.jira_domain -
+     * @param {string} options.project -
+     * @param {string} options.issueType - Type of issue to create: Bug, Improvement, New Feature, or Epic.
+     * @param {string} options.priority - Select an option...
+     * @param {string} options.assignee - Select an option...
+     * @param {string} options.summary - Summary of the bug or issue...
+     * @param {string} options.description - Description of the bug or issue...
+     */ CreateIssue,
+    /**
+     * @memberOf Connectors.JiraCloud.functions
+     * @param {object} options - EditIssue input options object.
+     * @param {object} options.atlassian_access_token -
+     * @param {"DEVELOPER"|"END_USER"} options.atlassian_access_token.credential_source - specifies which user’s token should be selected
+     * @param {string} options.jira_domain -
+     * @param {string} options.project -
+     * @param {string} options.issue_id - Issue ID
+     * @param {string} options.priority - Select an option...
+     * @param {string} options.assignee - Select an option...
+     * @param {string} options.summary - Summary of the bug or issue ...
+     * @param {string} options.description - Description of the bug or issue ...
+     */ EditIssue,
+  },
+} as const;
 
 export default JiraCloud;

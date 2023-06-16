@@ -5,7 +5,43 @@ import EscalateIncident from "./functions/escalate_incident.ts";
 import ResolveIncident from "./functions/resolve_incident.ts";
 
 const Pagerduty = {
-  functions: { AddANote, CreateIncident, EscalateIncident, ResolveIncident },
+  functions: {
+    /**
+     * @memberOf Connectors.Pagerduty.functions
+     * @param {object} options - AddANote input options object.
+     * @param {string} options.incident_id - Enter incident ID...
+     * @param {string} options.content - Enter a note...
+     * @param {object} options.pagerduty_access_token - Pagerduty access token
+     * @param {"DEVELOPER"|"END_USER"} options.pagerduty_access_token.credential_source - specifies which user’s token should be selected
+     */ AddANote,
+    /**
+     * @memberOf Connectors.Pagerduty.functions
+     * @param {object} options - CreateIncident input options object.
+     * @param {string} options.title - Enter incident title...
+     * @param {string} options.details - Enter incident details...
+     * @param {object} options.pagerduty_access_token - Pagerduty access token
+     * @param {"DEVELOPER"|"END_USER"} options.pagerduty_access_token.credential_source - specifies which user’s token should be selected
+     * @param {string} options.pagerduty_team_id - PagerDuty Team
+     * @param {string} options.service_id - PagerDuty Service
+     * @param {string} options.escalation_policy - PagerDuty Escalation policy
+     */ CreateIncident,
+    /**
+     * @memberOf Connectors.Pagerduty.functions
+     * @param {object} options - EscalateIncident input options object.
+     * @param {string} options.incident_id - Enter incident ID...
+     * @param {string} options.escalation_level - Ex: 2
+     * @param {object} options.pagerduty_access_token - Pagerduty access token
+     * @param {"DEVELOPER"|"END_USER"} options.pagerduty_access_token.credential_source - specifies which user’s token should be selected
+     */ EscalateIncident,
+    /**
+     * @memberOf Connectors.Pagerduty.functions
+     * @param {object} options - ResolveIncident input options object.
+     * @param {string} options.incident_id - Enter incident ID...
+     * @param {string} options.resolution_note - Enter a resolution note...
+     * @param {object} options.pagerduty_access_token - Pagerduty access token
+     * @param {"DEVELOPER"|"END_USER"} options.pagerduty_access_token.credential_source - specifies which user’s token should be selected
+     */ ResolveIncident,
+  },
 } as const;
 
 export default Pagerduty;

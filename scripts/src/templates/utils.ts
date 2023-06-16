@@ -49,13 +49,20 @@ const getParameterList = (
   ...functionRecord.output_parameters,
 ];
 
-const hasTypeObject = (
+export function isOfType(
+  type: string,
+  typeObject: AllowedTypeValueObject,
+): boolean {
+  return Object.values(typeObject).map((val) => getParameterType(val)).includes(
+    type,
+  );
+}
+export function hasTypeObject(
   types: string[],
   typeObject: AllowedTypeValueObject,
-): boolean =>
-  types.some((t) =>
-    Object.values(typeObject).map((val) => getParameterType(val)).includes(t)
-  );
+): boolean {
+  return types.some((t) => isOfType(t, typeObject));
+}
 
 const extractTypes = (properties: FunctionProperty[]): string[] => {
   let types: Set<string> = new Set();

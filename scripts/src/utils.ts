@@ -64,10 +64,10 @@ export function groupSlackFunctions(
     ) {
       continue;
     }
+    functionRecord.namespace = connectorInfo.namespace;
     if (functionRecordGroups[connectorInfo.namespace]) {
       functionRecordGroups[connectorInfo.namespace].push(functionRecord);
     } else {
-      functionRecord.namespace = connectorInfo.namespace;
       functionRecordGroups[connectorInfo.namespace] = [functionRecord];
     }
   }

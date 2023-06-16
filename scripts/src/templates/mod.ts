@@ -6,6 +6,7 @@ import {
   renderModuleImport,
 } from "./utils.ts";
 import { FunctionRecord } from "../types.ts";
+import JSdocTemplate from "./jsdoc.ts";
 
 export const ConnectorModTemplate = (
   namespace: string,
@@ -22,8 +23,9 @@ export const ConnectorModTemplate = (
   typescript.push("");
   typescript.push(
     `const ${objectName} = { functions: {${
-      functionRecords.map((dfi) => `${getFunctionName(dfi.callback_id)}`)
-        .join(",")
+      functionRecords.map((dfi) =>
+        `${JSdocTemplate(dfi)}${getFunctionName(dfi.callback_id)}`
+      ).join(",\n")
     }}} as const;`,
   );
   typescript.push("");

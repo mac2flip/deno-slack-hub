@@ -4,7 +4,33 @@ import RunFlow from "./functions/run_flow.ts";
 import UpdateRecord from "./functions/update_record.ts";
 
 const Salesforce = {
-  functions: { CreateRecord, RunFlow, UpdateRecord },
+  functions: {
+    /**
+     * @memberOf Connectors.Salesforce.functions
+     * @param {object} options - CreateRecord input options object.
+     * @param {string} options.salesforce_object_name - Select an option...
+     * @param {object} [options.metadata] - Select an field
+     * @param {object} options.salesforce_access_token -
+     * @param {"DEVELOPER"|"END_USER"} options.salesforce_access_token.credential_source - specifies which user’s token should be selected
+     */ CreateRecord,
+    /**
+     * @memberOf Connectors.Salesforce.functions
+     * @param {object} options - RunFlow input options object.
+     * @param {string} options.flow_name - Select a Salesforce flow...
+     * @param {object} options.metadata -
+     * @param {object} options.salesforce_access_token -
+     * @param {"DEVELOPER"|"END_USER"} options.salesforce_access_token.credential_source - specifies which user’s token should be selected
+     */ RunFlow,
+    /**
+     * @memberOf Connectors.Salesforce.functions
+     * @param {object} options - UpdateRecord input options object.
+     * @param {string} options.salesforce_object_name - Select an option...
+     * @param {string} options.record_id - Ex: 1000000000Abcd
+     * @param {object} [options.updates] -
+     * @param {object} options.salesforce_access_token -
+     * @param {"DEVELOPER"|"END_USER"} options.salesforce_access_token.credential_source - specifies which user’s token should be selected
+     */ UpdateRecord,
+  },
 } as const;
 
 export default Salesforce;

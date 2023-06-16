@@ -2,6 +2,21 @@
 import GetRandomGif from "./functions/get_random_gif.ts";
 import GetTranslatedGif from "./functions/get_translated_gif.ts";
 
-const Giphy = { functions: { GetRandomGif, GetTranslatedGif } } as const;
+const Giphy = {
+  functions: {
+    /**
+     * @memberOf Connectors.Giphy.functions
+     * @param {object} options - GetRandomGif input options object.
+     * @param {string} [options.tag] - Enter tags...
+     * @param {string} options.rating - Filter results by a specified rating
+     */ GetRandomGif,
+    /**
+     * @memberOf Connectors.Giphy.functions
+     * @param {object} options - GetTranslatedGif input options object.
+     * @param {string} options.search_term - Enter search terms...
+     * @param {string} [options.weirdness] - From 1 (not very weird) to 10 (very weird)
+     */ GetTranslatedGif,
+  },
+} as const;
 
 export default Giphy;
