@@ -1,9 +1,12 @@
-<h1 align="center">
+# File with heading
+<!--
+<h1 align="center">*/
   Deno Slack Hub
   <br>
 </h1>
+-->
 
-<h4 align="center">You want to use other peoples code to do your work?</h4>
+<!-- <h4 align="center"> --> You want to use other peoples code to do your work?</h4>
 
 We definitely do! The hub enables its users to use
 [Slack Connectors](https://api.slack.com/automation/connectors) in TypeScript,
